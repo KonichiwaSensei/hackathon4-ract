@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { acessKey } from "./keys";
 import { Link } from "react-router-dom";
 import { ImageContext } from "./ImageContext";
