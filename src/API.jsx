@@ -9,7 +9,7 @@ export default function API() {
 
     const [searchTerm, setSearchTerm] = useState('');
 
-    const url = `https://api.unsplash.com/search/photos?query=${searchTerm}&client_id=${acessKey}`
+    const url = `https://api.unsplash.com/search/photos?per_page=12&query=${searchTerm}&client_id=${acessKey}`
 
     const fetchAPI = async () => {
         const response = await fetch(url);
