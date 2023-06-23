@@ -3,10 +3,15 @@ import SearchBar from './SearchBar.jsx';
 import SearchResult from './SearchResult.jsx';
 import Author from './Author.jsx';
 import { acessKey } from './keys.js';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { ImageContext } from './ImageContext.js';
 
 export default function API() {
+
+    const imageTwo = useContext(ImageContext)
+
+    console.log(imageTwo);
 
     const [imageSearch, setImageSearch] = useState('');
 
@@ -32,6 +37,7 @@ export default function API() {
 
     return (
         <>
+        <h1>Awesome Picture Page</h1>
         <Routes>
             <Route path="/" element= {<SearchBar setSearchTerm={setSearchTerm} />} />
             <Route path="/search" element= {<SearchBar setSearchTerm={setSearchTerm} />} />
