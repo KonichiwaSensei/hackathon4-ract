@@ -3,10 +3,10 @@ import { ImageContext } from "./ImageContext";
 
 
 export const ImageContextProvider = ({children}) => {
-    const [imageSize, setImageSize] = useState({ width: 200, height: 200 });
+    const [imageSize, setImageSize] = useState(200);
   
-    const updateImageSize = (width, height) => {
-      setImageSize({ width, height });
+    const updateImageSize = (size) => {
+      setImageSize(size);
     };
   
     return (

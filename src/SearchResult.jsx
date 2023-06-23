@@ -1,8 +1,12 @@
 import { Link } from "react-router-dom";
 import './style.scss';
 
+import { ImageContext } from "./ImageContext";
+import { useContext } from "react";
 
 export default function SearchResult({ imageSearch, page, setPage }) {
+
+    const { imageSize } = useContext(ImageContext);
 
     const changePage = (change) => {
         setPage(Math.max(page + change, 1))
@@ -20,7 +24,7 @@ export default function SearchResult({ imageSearch, page, setPage }) {
                 imageSearch.map(search =>
                     <>
                         <Link to={`/author/${search.user.username}`}>
-                            <img key={search.id} src={search.urls.raw + "&w=200&h=200"} alt={search.alt_description} />
+                            <img key={search.id} src={search.urls.raw + `&w=${imageSize}&h=${imageSize}`} alt={search.alt_description} />
                         </Link>
                         
                     </>
