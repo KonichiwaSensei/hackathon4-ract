@@ -6,6 +6,7 @@ import { acessKey } from './keys.js';
 import { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { ImageContext } from './ImageContext.js';
+import Header from './Header.jsx';
 
 export default function API() {
 
@@ -39,7 +40,9 @@ export default function API() {
 
     return (
         <>
-        <h1>Awesome Picture Page</h1>
+        <Header />
+        <h1>Awesome Unsplash Picture Page</h1>
+        
         <Routes>
             <Route path="/" element= {<SearchBar setSearchTerm={setSearchTerm} />} />
             <Route path="/search" element= {<SearchBar setSearchTerm={setSearchTerm} />} />

@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import { acessKey } from "./keys";
 import { Link } from "react-router-dom";
+import { ImageContext } from "./ImageContext";
 
 export default function AuthorImage({ username, author }) {
 
     const [images, setImages] = useState([]);
     const [page, setPage] = useState(1);
+
+    const { imageSize } = useContext(ImageContext);
 
     const url = `https://api.unsplash.com/users/${username}/photos?page=${page}&per_page=12&client_id=${acessKey}`
 
@@ -33,7 +36,7 @@ export default function AuthorImage({ username, author }) {
                 {images.map((image) => (
                    <a target="_blank" href={image.links.html}> <img
                         key={image.id}
-                        src={image.urls.raw  + "&w=200&h=200"}
+                        src={image.urls.raw  + `&w=${imageSize}&h=${imageSize}`}
                         alt={image.alt_description}
                     />
                     </a>
