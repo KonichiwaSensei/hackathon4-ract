@@ -34,12 +34,13 @@ export default function AuthorImage({ username, author }) {
             <h3>Images by {author.name}</h3>
             <div>
                 {images.map((image) => (
-                   <a target="_blank" href={image.links.html}> <img
+                    <Link key={image.id} to={`/image/${image.id}`}>
+                    <img
                         key={image.id}
                         src={image.urls.raw  + `&w=${imageSize}&h=${imageSize}`}
                         alt={image.alt_description}
                     />
-                    </a>
+                    </Link>
                 ))}
             </div>
             <>

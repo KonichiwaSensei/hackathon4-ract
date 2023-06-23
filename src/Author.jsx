@@ -15,7 +15,7 @@ const Author = () => {
       );
       const authorData = await authorResponse.json();
       setAuthor(authorData);
-      console.log(authorData);
+      // console.log(authorData);
     };
 
     fetchAuthorData();

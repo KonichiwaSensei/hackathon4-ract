@@ -20,12 +20,12 @@ export default function SearchResult({ imageSearch, page, setPage }) {
                 ? <div>Loading...</div>
                 :
                 imageSearch.map(search =>
-                    <>
-                        <Link to={`/author/${search.user.username}`}>
+                    
+                        <Link key={search.id} to={`/author/${search.user.username}`}>
                             <img key={search.id} src={search.urls.raw + `&w=${imageSize}&h=${imageSize}`} alt={search.alt_description} />
                         </Link>
                         
-                    </>
+                    
                 )}
             <>
             <br />

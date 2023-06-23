@@ -7,12 +7,13 @@ import { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { ImageContext } from './ImageContext.js';
 import Header from './Header.jsx';
+import ImageDetail from './ImageDetail.jsx';
 
 export default function API() {
 
     const imageTwo = useContext(ImageContext)
 
-    console.log(imageTwo);
+    // console.log(imageTwo);
 
     const [imageSearch, setImageSearch] = useState('');
 
@@ -48,7 +49,8 @@ export default function API() {
             <Route path="/search" element= {<SearchBar setSearchTerm={setSearchTerm} />} />
             <Route path='/search/:term' element={<SearchResult imageSearch={imageSearch} page={page} setPage={setPage}/>} />
             <Route path="/author" element= {<SearchBar setSearchTerm={setSearchTerm} />} />
-            <Route path='author/:username' element={<Author /> } />
+            <Route path='/author/:username' element={<Author /> } />
+            <Route path='/image/:id' element={<ImageDetail />} />
         </Routes>
         </>
     )
