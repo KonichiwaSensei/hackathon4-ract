@@ -1,6 +1,7 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
-export default function SearchBar({ setSearchTerm, searchTerm, imageSearch }) {
+export default function SearchBar({ setSearchTerm }) {
 
     const [search, setSearch] = useState('');
 
@@ -8,8 +9,12 @@ export default function SearchBar({ setSearchTerm, searchTerm, imageSearch }) {
         <>
             <div className="SearchBar">
                 <input type="text" onChange={(event) => setSearch(event.target.value)} />
-                <button onClick={() => setSearchTerm(search) & console.log(searchTerm)}>Search</button>
+                <Link to={`/search/${search}`}>
+                <button onClick={() => setSearchTerm(search)}>Search</button>
+                </Link>
+
             </div>
+            
         </>
         
     )
