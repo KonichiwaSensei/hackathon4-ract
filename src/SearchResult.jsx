@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import './style.scss';
+
 import { ImageContext } from "./ImageContext";
 import { useContext } from "react";
 

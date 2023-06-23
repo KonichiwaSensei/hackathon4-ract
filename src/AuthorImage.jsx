@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { acessKey } from "./keys";
 import { Link } from "react-router-dom";
+import './style.scss';
 import { ImageContext } from "./ImageContext";
 
 export default function AuthorImage({ username, author }) {

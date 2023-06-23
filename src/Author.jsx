@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { acessKey } from './keys';
 import AuthorImage from './AuthorImage';
+import './style.scss';
 
 const Author = () => {
   const { username } = useParams();
@@ -27,6 +28,7 @@ const Author = () => {
 
   return (
     <>
+    <div className="author-container">
       <Link to="/search/:term">
         <button>Back</button>
       </Link>
@@ -41,6 +43,7 @@ const Author = () => {
         <br />
         <AuthorImage author={author} username={username} />
       </div>
+    </div>
     </>
   );
 };

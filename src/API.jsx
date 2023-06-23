@@ -9,6 +9,7 @@ import { ImageContext } from './ImageContext.js';
 import Header from './Header.jsx';
 import ImageDetail from './ImageDetail.jsx';
 
+
 export default function API() {
 
     const imageTwo = useContext(ImageContext)
