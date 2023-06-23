@@ -1,5 +1,6 @@
 import SearchBar from './SearchBar.jsx';
 import SearchResult from './SearchResult.jsx';
+import Author from './Author.jsx';
 import { acessKey } from './keys.js';
 import { useEffect, useState } from 'react';
 
@@ -29,6 +30,7 @@ export default function API() {
         <>
             <SearchBar setSearchTerm={setSearchTerm} searchTerm={searchTerm} />
             <SearchResult imageSearch={imageSearch} />
+            
         </>
     )
 
