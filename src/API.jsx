@@ -12,7 +12,7 @@ export default function API() {
 
     const [searchTerm, setSearchTerm] = useState('');
 
-    const {term} = useParams();
+    const {term, username} = useParams();
 
     const url = `https://api.unsplash.com/search/photos?per_page=12&query=${searchTerm}&client_id=${acessKey}`
 
@@ -21,7 +21,7 @@ export default function API() {
         const data = await response.json();
 
         setImageSearch(data.results);
-        console.log(data.results);
+        // console.log(data.results);
     }
 
     useEffect(() => {
@@ -33,10 +33,11 @@ export default function API() {
     return (
         <>
         <Routes>
-
             <Route path="/" element= {<SearchBar setSearchTerm={setSearchTerm} />} />
             <Route path="/search" element= {<SearchBar setSearchTerm={setSearchTerm} />} />
             <Route path='/search/:term' element={<SearchResult imageSearch={imageSearch} />} />
+            <Route path="/author" element= {<SearchBar setSearchTerm={setSearchTerm} />} />
+            <Route path='author/:username' element={<Author /> } />
         </Routes>
         </>
     )

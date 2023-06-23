@@ -1,28 +1,21 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import { acessKey } from './keys';
+import AuthorImage from './AuthorImage';
 
 const Author = () => {
   const { username } = useParams();
   const [author, setAuthor] = useState(null);
-  const [images, setImages] = useState([]);
+
 
   useEffect(() => {
     const fetchAuthorData = async () => {
-      try {
-        const authorResponse = await fetch(
-          `https://api.unsplash.com/users/${username}?client_id={YOUR_ACCESS_KEY}`
-        );
-        const authorData = await authorResponse.json();
-        setAuthor(authorData);
-
-        const imagesResponse = await fetch(
-          `https://api.unsplash.com/users/${username}/photos?client_id={YOUR_ACCESS_KEY}`
-        );
-        const imagesData = await imagesResponse.json();
-        setImages(imagesData);
-      } catch (error) {
-        console.error(error);
-      }
+      const authorResponse = await fetch(
+        `https://api.unsplash.com/users/${username}?client_id=${acessKey}`
+      );
+      const authorData = await authorResponse.json();
+      setAuthor(authorData);
+      console.log(authorData);
     };
 
     fetchAuthorData();
@@ -33,24 +26,22 @@ const Author = () => {
   }
 
   return (
-    <div>
-      <h2>{author.name}</h2>
-      <p>Bio: {author.bio}</p>
-      <p>Location: {author.location}</p>
-      <p>Total Downloads: {author.total_downloads}</p>
-      <p>Total Likes: {author.total_likes}</p>
-
-      <h3>Images by {author.name}</h3>
-      <div>
-        {images.map((image) => (
-          <img
-            key={image.id}
-            src={image.urls.small}
-            alt={image.alt_description}
-          />
-        ))}
+    <>
+      <Link to="/search/:term">
+        <button>Back</button>
+      </Link>
+      <div key={author.id}>
+        <h2>{author.name}</h2>
+        <p>Bio: {author.bio}</p>
+        <p>Location: {author.location}</p>
+        <p>Total Downloads: {author.downloads}</p>
+        <p>Followers: {author.followers_count}</p>
+        <p>Total Likes: {author.total_likes}</p>
+        <a href={`http://instagram.com/${author.social.instagram_username}`} target="_blank">Link to IG</a>
+        <br />
+        <AuthorImage author={author} username={username} />
       </div>
-    </div>
+    </>
   );
 };
 
