@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import './style.scss';
+
 
 export default function SearchResult({ imageSearch, page, setPage }) {
 

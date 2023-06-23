@@ -7,6 +7,7 @@ import { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { ImageContext } from './ImageContext.js';
 
+
 export default function API() {
 
     const imageTwo = useContext(ImageContext)
