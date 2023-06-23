@@ -1,5 +1,6 @@
 import { useContext, useState } from "react"
 import { ImageContext } from "./ImageContext";
+import './style.scss'
 
 export default function Header(){
 
