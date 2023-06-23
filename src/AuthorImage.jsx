@@ -47,12 +47,12 @@ export default function AuthorImage({ username, author }) {
             <>
                 {page > 1
                     ?
-                    <button onClick={() => changePage(-1)}>Prev</button>
+                    <button className="BackButton" onClick={() => changePage(-1)}>Prev</button>
                     :
                     ''
                 }
                 <div>Showing page: { page }</div>
-                <button onClick={() => changePage(+1)}>Next</button>
+                <button className="BackButton" onClick={() => changePage(+1)}>Next</button>
             </>
         </>
     )

@@ -15,7 +15,7 @@ export default function SearchResult({ imageSearch, page, setPage }) {
     return (
         <>
             <Link to="/">
-                <button>Back</button>
+                <button className="BackButton" >Back</button>
             </Link>
             <br />
             {imageSearch === ""
@@ -33,12 +33,12 @@ export default function SearchResult({ imageSearch, page, setPage }) {
             <br />
                 {page > 1
                     ?
-                    <button onClick={() => changePage(-1)}>Prev</button>
+                    <button className="BackButton" onClick={() => changePage(-1)}>Prev</button>
                     :
                     ''
                 }
                 <div>Showing page: {page}</div>
-                <button onClick={() => changePage(+1)}>Next</button>
+                <button  className="BackButton" onClick={() => changePage(+1)}>Next</button>
             </>
         </>
     )

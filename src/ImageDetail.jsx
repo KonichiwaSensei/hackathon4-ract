@@ -31,13 +31,13 @@ export default function ImageDetail() {
                 :
                 <>
                     <Link to={`/author/${image.user.username}`}>
-                        <button>Back to Search</button>
+                        <button className="BackButton">Back to Search</button>
                     </Link>
-                    <div key={image.id}>
+                    <div className="image-detail" key={image.id}>
                         <h3>User: {image.user.username}</h3>
                         <p>Image description: {image.description}</p>
                         <p>Downloads: {image.downloads} | Likes: {image.likes}</p>
-                        <a href={image.links.html}>
+                        <a href={image.links.html} target="_blank">
                             <img style={{ width: '50%' }} src={image.urls.raw} alt={image.alt_description} />
                         </a>
                     </div>
