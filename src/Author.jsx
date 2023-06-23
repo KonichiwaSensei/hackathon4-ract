@@ -6,12 +6,12 @@ import AuthorImage from './AuthorImage';
 const Author = () => {
   const { username } = useParams();
   const [author, setAuthor] = useState(null);
-
+  const [page, setPage] = useState(0);
 
   useEffect(() => {
     const fetchAuthorData = async () => {
       const authorResponse = await fetch(
-        `https://api.unsplash.com/users/${username}?client_id=${acessKey}`
+        `https://api.unsplash.com/users/${username}?page=${page}&per_page=12&client_id=${acessKey}`
       );
       const authorData = await authorResponse.json();
       setAuthor(authorData);

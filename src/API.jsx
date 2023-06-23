@@ -12,9 +12,11 @@ export default function API() {
 
     const [searchTerm, setSearchTerm] = useState('');
 
+    const [page, setPage] = useState(1);
+
     const {term, username} = useParams();
 
-    const url = `https://api.unsplash.com/search/photos?per_page=12&query=${searchTerm}&client_id=${acessKey}`
+    const url = `https://api.unsplash.com/search/photos?page=${page}&per_page=12&query=${searchTerm}&client_id=${acessKey}`
 
     const fetchAPI = async () => {
         const response = await fetch(url);
@@ -28,14 +30,14 @@ export default function API() {
         if (searchTerm) {
             fetchAPI()
         }
-    }, [searchTerm])
+    }, [searchTerm, page])
 
     return (
         <>
         <Routes>
             <Route path="/" element= {<SearchBar setSearchTerm={setSearchTerm} />} />
             <Route path="/search" element= {<SearchBar setSearchTerm={setSearchTerm} />} />
-            <Route path='/search/:term' element={<SearchResult imageSearch={imageSearch} />} />
+            <Route path='/search/:term' element={<SearchResult imageSearch={imageSearch} page={page} setPage={setPage}/>} />
             <Route path="/author" element= {<SearchBar setSearchTerm={setSearchTerm} />} />
             <Route path='author/:username' element={<Author /> } />
         </Routes>
