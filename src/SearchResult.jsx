@@ -18,7 +18,7 @@ export default function SearchResult({ imageSearch, page, setPage }) {
                 imageSearch.map(search =>
                     <>
                         <Link to={`/author/${search.user.username}`}>
-                            <img key={search.id} src={search.links.download} alt={search.alt_description} />
+                            <img key={search.id} src={search.urls.raw + "&w=200&h=200"} alt={search.alt_description} />
                         </Link>
                         
                     </>

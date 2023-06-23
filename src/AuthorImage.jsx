@@ -33,7 +33,7 @@ export default function AuthorImage({ username, author }) {
                 {images.map((image) => (
                    <a target="_blank" href={image.links.html}> <img
                         key={image.id}
-                        src={image.urls.full}
+                        src={image.urls.raw  + "&w=200&h=200"}
                         alt={image.alt_description}
                     />
                     </a>
