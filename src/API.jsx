@@ -15,8 +15,8 @@ export default function API() {
         const response = await fetch(url);
         const data = await response.json();
 
-        setImageSearch(data);
-        console.log(data);
+        setImageSearch(data.results);
+        console.log(data.results);
     }
 
     useEffect(() => {
